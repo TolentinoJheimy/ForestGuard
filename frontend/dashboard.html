@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ForestGuard | Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!--LeafLet-->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <div class="dashboard">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <!-- LOGO -->
+
+            <div class="sidebar-logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+
+                <div>
+                    <h2>ForestGuard</h2>
+                    <span>MONITORING SYSTEM</span>
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <nav class="sidebar-menu">
+
+                <p class="menu-title">
+                    PRINCIPAL
+                </p>
+
+
+                <a href="#" class="menu-item active" data-view="dashboard">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    <span>Dashboard</span>
+
+                </a>
+
+
+                <a href="#" class="menu-item" data-view="zonas">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>Zonas</span>
+
+                </a>
+
+
+                <a href="#" class="menu-item" data-view="alertas">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <span>Alertas</span>
+
+                    <span class="notification-count">
+                        3
+                    </span>
+
+                </a>
+
+
+                <p class="menu-title">
+                    MONITOREO
+                </p>
+
+
+                <a href="#" class="menu-item" data-view="sensores">
+
+                    <i class="fa-solid fa-microchip"></i>
+
+                    <span>Sensores</span>
+
+                </a>
+
+
+                <a href="#" class="menu-item" data-view="historial">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <span>Historial</span>
+
+                </a>
+
+
+                <p class="menu-title">
+                    SISTEMA
+                </p>
+
+
+                <a href="#" class="menu-item" data-view="configuracion">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>Configuración</span>
+
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <div class="system-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+
+                        <strong>Sistema online</strong>
+
+                        <small>Todos los servicios activos</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="sidebar-user">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong>Administrador</strong>
+
+                        <small>ForestGuard</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="topbar">
+
+                <div class="page-title">
+
+                    <span>MONITOREO</span>
+
+                    <h1>Dashboard</h1>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+                    <div class="last-update">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        <span>
+                            Última actualización:
+                        </span>
+
+                        <strong id="lastUpdate">
+                            Ahora
+                        </strong>
+
+                    </div>
+
+
+                    <button class="icon-button">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span class="alert-dot"></span>
+
+                    </button>
+
+
+                    <div class="profile">
+
+                        <div class="profile-avatar">
+                            A
+                        </div>
+
+                        <div>
+
+                            <strong>Administrador</strong>
+
+                            <small>Administrador</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <section class="content">
+
+
+                <!-- =====================================================
+         VISTA: DASHBOARD
+    ====================================================== -->
+
+                <div class="dashboard-view view active" id="view-dashboard">
+
+                    <div class="welcome">
+
+                        <div>
+
+                            <h2>
+                                Monitoreo forestal
+                            </h2>
+
+                            <p>
+                                Supervisa las condiciones ambientales
+                                y detecta posibles riesgos en tiempo real.
+                            </p>
+
+                        </div>
+
+                        <div class="system-online">
+
+                            <span></span>
+
+                            Sistema operativo
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ESTADÍSTICAS -->
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-header">
+
+                                <span class="stat-title">
+                                    Temperatura
+                                </span>
+
+                                <div class="stat-icon temperature">
+
+                                    <i class="fa-solid fa-temperature-half"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stat-value">
+
+                                <strong id="temperature">
+                                    24.8
+                                </strong>
+
+                                <span>°C</span>
+
+                            </div>
+
+                            <div class="stat-footer positive">
+
+                                <i class="fa-solid fa-arrow-down"></i>
+
+                                2.4% respecto a la hora anterior
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-header">
+
+                                <span class="stat-title">
+                                    Humedad
+                                </span>
+
+                                <div class="stat-icon humidity">
+
+                                    <i class="fa-solid fa-droplet"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stat-value">
+
+                                <strong id="humidity">
+                                    42
+                                </strong>
+
+                                <span>%</span>
+
+                            </div>
+
+                            <div class="stat-footer positive">
+
+                                <i class="fa-solid fa-arrow-up"></i>
+
+                                3.1% respecto a la hora anterior
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-header">
+
+                                <span class="stat-title">
+                                    Nivel de humo
+                                </span>
+
+                                <div class="stat-icon smoke">
+
+                                    <i class="fa-solid fa-smog"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="stat-value">
+
+                                <strong id="smoke">
+                                    18
+                                </strong>
+
+                                <span>ppm</span>
+
+                            </div>
+
+                            <div class="stat-footer positive">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Nivel normal
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-header">
+
+                                <span class="stat-title">
+                                    Nivel de riesgo
+                                </span>
+
+                                <div class="stat-icon risk">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                </div>
+
+                            </div>
+
+                            <div class="risk-value">
+
+                                <span class="risk-indicator"></span>
+
+                                <strong id="risk">
+                                    BAJO
+                                </strong>
+
+                            </div>
+
+                            <div class="stat-footer">
+
+                                Todos los parámetros normales
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GRÁFICO + MAPA -->
+
+                    <div class="middle-grid">
+
+
+                        <div class="panel chart-panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        MONITOREO
+                                    </span>
+
+                                    <h3>
+                                        Condiciones ambientales
+                                    </h3>
+
+                                </div>
+
+                                <select id="chartPeriod">
+
+                                    <option value="24">
+                                        Últimas 24 horas
+                                    </option>
+
+                                    <option value="12">
+                                        Últimas 12 horas
+                                    </option>
+
+                                    <option value="6">
+                                        Últimas 6 horas
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="chart-container">
+
+                                <canvas id="environmentChart"></canvas>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel map-panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        UBICACIÓN
+                                    </span>
+
+                                    <h3>
+                                        Zonas monitoreadas
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <div class="map-container">
+                                <div id="dashboardMap"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ALERTAS + DISPOSITIVOS -->
+
+                    <div class="bottom-grid">
+
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        ALERTAS
+                                    </span>
+
+                                    <h3>
+                                        Alertas recientes
+                                    </h3>
+
+                                </div>
+
+                                <a href="#" class="view-link" data-view="alertas">
+                                    Ver todas
+                                </a>
+
+                            </div>
+
+                            <div class="alerts-list">
+
+                                <div class="alert-item warning">
+
+                                    <div class="alert-icon">
+
+                                        <i class="fa-solid fa-temperature-high"></i>
+
+                                    </div>
+
+                                    <div class="alert-info">
+
+                                        <strong>
+                                            Temperatura elevada
+                                        </strong>
+
+                                        <span>
+                                            Zona Forestal Norte
+                                        </span>
+
+                                        <small>
+                                            Hace 8 minutos
+                                        </small>
+
+                                    </div>
+
+                                    <span class="alert-status warning">
+                                        Advertencia
+                                    </span>
+
+                                </div>
+
+
+                                <div class="alert-item danger">
+
+                                    <div class="alert-icon">
+
+                                        <i class="fa-solid fa-smog"></i>
+
+                                    </div>
+
+                                    <div class="alert-info">
+
+                                        <strong>
+                                            Nivel de humo elevado
+                                        </strong>
+
+                                        <span>
+                                            Zona Forestal Centro
+                                        </span>
+
+                                        <small>
+                                            Hace 21 minutos
+                                        </small>
+
+                                    </div>
+
+                                    <span class="alert-status danger">
+                                        Crítica
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        DISPOSITIVOS
+                                    </span>
+
+                                    <h3>
+                                        Estado de sensores
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="device-list">
+
+                                <div class="device">
+
+                                    <div class="device-icon">
+
+                                        <i class="fa-solid fa-microchip"></i>
+
+                                    </div>
+
+                                    <div class="device-info">
+
+                                        <strong>
+                                            ForestGuard-01
+                                        </strong>
+
+                                        <span>
+                                            Zona Norte
+                                        </span>
+
+                                    </div>
+
+                                    <div class="device-status online">
+
+                                        <span></span>
+
+                                        Online
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="device">
+
+                                    <div class="device-icon">
+
+                                        <i class="fa-solid fa-microchip"></i>
+
+                                    </div>
+
+                                    <div class="device-info">
+
+                                        <strong>
+                                            ForestGuard-02
+                                        </strong>
+
+                                        <span>
+                                            Zona Centro
+                                        </span>
+
+                                    </div>
+
+                                    <div class="device-status online">
+
+                                        <span></span>
+
+                                        Online
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+         VISTA: ZONAS
+    ====================================================== -->
+
+                <div class="view" id="view-zonas">
+
+                    <div class="page-heading">
+
+                        <span>MONITOREO GEOGRÁFICO</span>
+
+                        <h2>
+                            Zonas monitoreadas
+                        </h2>
+
+                        <p>
+                            Visualiza las estaciones ForestGuard y el nivel
+                            de riesgo de cada zona.
+                        </p>
+
+                    </div>
+
+
+                    <div class="zones-layout">
+
+
+                        <div class="panel zone-map">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        MAPA
+                                    </span>
+
+                                    <h3>
+                                        Estaciones ForestGuard
+                                    </h3>
+
+                                </div>
+
+                                <button class="map-button">
+                                    <i class="fa-solid fa-expand"></i>
+                                </button>
+
+                            </div>
+
+
+                            <div class="real-map">
+                                <div id="zonesMap"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        ESTACIONES
+                                    </span>
+
+                                    <h3>
+                                        Estado de las zonas
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="zone-list">
+
+
+                                <div class="zone-item">
+
+                                    <div class="zone-status green">
+                                        <span></span>
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Zona Norte
+                                        </strong>
+
+                                        <small>
+                                            Temperatura 24°C · Humedad 42%
+                                        </small>
+
+                                    </div>
+
+                                    <b>
+                                        BAJO
+                                    </b>
+
+                                </div>
+
+
+                                <div class="zone-item">
+
+                                    <div class="zone-status yellow">
+                                        <span></span>
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Zona Centro
+                                        </strong>
+
+                                        <small>
+                                            Temperatura 31°C · Humedad 29%
+                                        </small>
+
+                                    </div>
+
+                                    <b>
+                                        MEDIO
+                                    </b>
+
+                                </div>
+
+
+                                <div class="zone-item">
+
+                                    <div class="zone-status red">
+                                        <span></span>
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            Zona Sur
+                                        </strong>
+
+                                        <small>
+                                            Humo elevado detectado
+                                        </small>
+
+                                    </div>
+
+                                    <b>
+                                        ALTO
+                                    </b>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+         VISTA: ALERTAS
+    ====================================================== -->
+
+                <div class="view" id="view-alertas">
+
+                    <div class="page-heading">
+
+                        <span>SEGURIDAD</span>
+
+                        <h2>
+                            Centro de alertas
+                        </h2>
+
+                        <p>
+                            Revisa las condiciones que requieren atención.
+                        </p>
+
+                    </div>
+
+
+                    <div class="alerts-summary">
+
+                        <div class="alert-summary-card">
+
+                            <strong>1</strong>
+
+                            <span>
+                                Críticas
+                            </span>
+
+                        </div>
+
+
+                        <div class="alert-summary-card">
+
+                            <strong>1</strong>
+
+                            <span>
+                                Advertencias
+                            </span>
+
+                        </div>
+
+
+                        <div class="alert-summary-card">
+
+                            <strong>4</strong>
+
+                            <span>
+                                Resueltas
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    REGISTRO
+                                </span>
+
+                                <h3>
+                                    Historial de alertas
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="full-alert-list">
+
+
+                            <div class="full-alert danger">
+
+                                <div class="full-alert-icon">
+                                    <i class="fa-solid fa-fire"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Posible incendio detectado
+                                    </strong>
+
+                                    <p>
+                                        Zona Forestal Sur · Nivel de humo crítico
+                                    </p>
+
+                                    <small>
+                                        Hace 5 minutos
+                                    </small>
+
+                                </div>
+
+                                <span>
+                                    CRÍTICA
+                                </span>
+
+                            </div>
+
+
+                            <div class="full-alert warning">
+
+                                <div class="full-alert-icon">
+                                    <i class="fa-solid fa-temperature-high"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Temperatura elevada
+                                    </strong>
+
+                                    <p>
+                                        Zona Forestal Centro · 31°C
+                                    </p>
+
+                                    <small>
+                                        Hace 18 minutos
+                                    </small>
+
+                                </div>
+
+                                <span>
+                                    ADVERTENCIA
+                                </span>
+
+                            </div>
+
+
+                            <div class="full-alert normal">
+
+                                <div class="full-alert-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Riesgo normalizado
+                                    </strong>
+
+                                    <p>
+                                        Zona Forestal Norte
+                                    </p>
+
+                                    <small>
+                                        Hace 42 minutos
+                                    </small>
+
+                                </div>
+
+                                <span>
+                                    RESUELTA
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+         VISTA: SENSORES
+    ====================================================== -->
+
+                <div class="view" id="view-sensores">
+
+                    <div class="page-heading">
+
+                        <span>INTERNET OF THINGS</span>
+
+                        <h2>
+                            Sensores y dispositivos
+                        </h2>
+
+                        <p>
+                            Estado de los dispositivos instalados en las zonas
+                            monitoreadas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="sensor-grid">
+
+
+                        <div class="sensor-card">
+
+                            <div class="sensor-top">
+
+                                <div class="sensor-device-icon">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                </div>
+
+                                <span class="sensor-online">
+                                    ● ONLINE
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                ForestGuard-01
+                            </h3>
+
+                            <p>
+                                Estación Zona Norte
+                            </p>
+
+
+                            <div class="sensor-values">
+
+                                <div>
+
+                                    <span>
+                                        Temperatura
+                                    </span>
+
+                                    <strong>
+                                        24.8 °C
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Humedad
+                                    </span>
+
+                                    <strong>
+                                        42 %
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sensor-footer">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                Actualizado hace 5 segundos
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="sensor-card">
+
+                            <div class="sensor-top">
+
+                                <div class="sensor-device-icon">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                </div>
+
+                                <span class="sensor-online">
+                                    ● ONLINE
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                ForestGuard-02
+                            </h3>
+
+                            <p>
+                                Estación Zona Centro
+                            </p>
+
+
+                            <div class="sensor-values">
+
+                                <div>
+
+                                    <span>
+                                        Temperatura
+                                    </span>
+
+                                    <strong>
+                                        31.2 °C
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Humedad
+                                    </span>
+
+                                    <strong>
+                                        29 %
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sensor-footer">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                Actualizado hace 8 segundos
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="sensor-card offline-card">
+
+                            <div class="sensor-top">
+
+                                <div class="sensor-device-icon">
+
+                                    <i class="fa-solid fa-microchip"></i>
+
+                                </div>
+
+                                <span class="sensor-offline">
+                                    ● OFFLINE
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+                                ForestGuard-03
+                            </h3>
+
+                            <p>
+                                Estación Zona Sur
+                            </p>
+
+
+                            <div class="sensor-values">
+
+                                <div>
+
+                                    <span>
+                                        Última temperatura
+                                    </span>
+
+                                    <strong>
+                                        27.1 °C
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        Última humedad
+                                    </span>
+
+                                    <strong>
+                                        36 %
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="sensor-footer">
+
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                                Sin conexión
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel sensor-components">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    HARDWARE
+                                </span>
+
+                                <h3>
+                                    Componentes de la estación
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="component-list">
+
+
+                            <div class="component">
+
+                                <i class="fa-solid fa-microchip"></i>
+
+                                <div>
+
+                                    <strong>
+                                        ESP32
+                                    </strong>
+
+                                    <span>
+                                        Controlador principal
+                                    </span>
+
+                                </div>
+
+                                <b>
+                                    ACTIVO
+                                </b>
+
+                            </div>
+
+
+                            <div class="component">
+
+                                <i class="fa-solid fa-temperature-half"></i>
+
+                                <div>
+
+                                    <strong>
+                                        DHT22
+                                    </strong>
+
+                                    <span>
+                                        Temperatura y humedad
+                                    </span>
+
+                                </div>
+
+                                <b>
+                                    ACTIVO
+                                </b>
+
+                            </div>
+
+
+                            <div class="component">
+
+                                <i class="fa-solid fa-smog"></i>
+
+                                <div>
+
+                                    <strong>
+                                        MQ-2
+                                    </strong>
+
+                                    <span>
+                                        Detección de humo y gases
+                                    </span>
+
+                                </div>
+
+                                <b>
+                                    ACTIVO
+                                </b>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+         VISTA: HISTORIAL
+    ====================================================== -->
+
+                <div class="view" id="view-historial">
+
+                    <div class="page-heading">
+
+                        <span>DATOS</span>
+
+                        <h2>
+                            Historial de mediciones
+                        </h2>
+
+                        <p>
+                            Consulta la evolución de las variables ambientales.
+                        </p>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    HISTORIAL
+                                </span>
+
+                                <h3>
+                                    Mediciones registradas
+                                </h3>
+
+                            </div>
+
+                            <select>
+
+                                <option>
+                                    Últimas 24 horas
+                                </option>
+
+                                <option>
+                                    Últimos 7 días
+                                </option>
+
+                                <option>
+                                    Último mes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="history-table">
+
+                            <div class="history-row history-header">
+
+                                <span>
+                                    FECHA
+                                </span>
+
+                                <span>
+                                    ZONA
+                                </span>
+
+                                <span>
+                                    TEMPERATURA
+                                </span>
+
+                                <span>
+                                    HUMEDAD
+                                </span>
+
+                                <span>
+                                    HUMO
+                                </span>
+
+                                <span>
+                                    RIESGO
+                                </span>
+
+                            </div>
+
+
+                            <div class="history-row">
+
+                                <span>
+                                    11/08/2026 21:25
+                                </span>
+
+                                <span>
+                                    Norte
+                                </span>
+
+                                <span>
+                                    24.8 °C
+                                </span>
+
+                                <span>
+                                    42 %
+                                </span>
+
+                                <span>
+                                    18 ppm
+                                </span>
+
+                                <span class="risk-low">
+                                    BAJO
+                                </span>
+
+                            </div>
+
+
+                            <div class="history-row">
+
+                                <span>
+                                    11/08/2026 21:20
+                                </span>
+
+                                <span>
+                                    Centro
+                                </span>
+
+                                <span>
+                                    31.2 °C
+                                </span>
+
+                                <span>
+                                    29 %
+                                </span>
+
+                                <span>
+                                    44 ppm
+                                </span>
+
+                                <span class="risk-medium">
+                                    MEDIO
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================================
+         VISTA: CONFIGURACIÓN
+    ====================================================== -->
+
+                <div class="view" id="view-configuracion">
+
+                    <div class="page-heading">
+
+                        <span>SISTEMA</span>
+
+                        <h2>
+                            Configuración
+                        </h2>
+
+                        <p>
+                            Configuración general del sistema ForestGuard.
+                        </p>
+
+                    </div>
+
+
+                    <div class="settings-grid">
+
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        ALERTAS
+                                    </span>
+
+                                    <h3>
+                                        Umbrales de riesgo
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="setting">
+
+                                <div>
+
+                                    <strong>
+                                        Temperatura máxima
+                                    </strong>
+
+                                    <small>
+                                        Temperatura para activar advertencia
+                                    </small>
+
+                                </div>
+
+                                <input type="number" value="30">
+
+                                <span>°C</span>
+
+                            </div>
+
+
+                            <div class="setting">
+
+                                <div>
+
+                                    <strong>
+                                        Humedad mínima
+                                    </strong>
+
+                                    <small>
+                                        Humedad para activar advertencia
+                                    </small>
+
+                                </div>
+
+                                <input type="number" value="30">
+
+                                <span>%</span>
+
+                            </div>
+
+
+                            <div class="setting">
+
+                                <div>
+
+                                    <strong>
+                                        Nivel máximo de humo
+                                    </strong>
+
+                                    <small>
+                                        Valor para activar alerta
+                                    </small>
+
+                                </div>
+
+                                <input type="number" value="60">
+
+                                <span>ppm</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        SISTEMA
+                                    </span>
+
+                                    <h3>
+                                        Preferencias
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="toggle-setting">
+
+                                <div>
+
+                                    <strong>
+                                        Notificaciones
+                                    </strong>
+
+                                    <small>
+                                        Recibir avisos de nuevas alertas
+                                    </small>
+
+                                </div>
+
+                                <input type="checkbox" checked>
+
+                                <span class="toggle"></span>
+
+                            </label>
+
+
+                            <label class="toggle-setting">
+
+                                <div>
+
+                                    <strong>
+                                        Actualización automática
+                                    </strong>
+
+                                    <small>
+                                        Actualizar datos automáticamente
+                                    </small>
+
+                                </div>
+
+                                <input type="checkbox" checked>
+
+                                <span class="toggle"></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         CHART.JS
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- =====================================================
+         DASHBOARD JS
+    ====================================================== -->
+
+    <script src="js/dashboard.js"></script>
+
+    <!--LeafLet-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+
+</body>
+
+</html>
