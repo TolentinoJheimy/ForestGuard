@@ -100,6 +100,11 @@ function updatePageTitle(view) {
         configuracion: {
             category: "SISTEMA",
             title: "Configuración"
+        },
+
+        video: {
+            category: "VIDEO",
+            title: "Media"
         }
 
     };

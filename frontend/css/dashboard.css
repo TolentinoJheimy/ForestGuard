@@ -647,6 +647,43 @@ select {
 }
 
 
+/* Media */
+
+.tech-video {
+    width: 86%;
+    max-width: 1100px;
+    margin: 50px auto 0;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.tech-video h3 {
+    margin-bottom: 25px;
+    color: #064e3b;
+    font-size: 1.4rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 /* PROFILE */
 
 .profile {
