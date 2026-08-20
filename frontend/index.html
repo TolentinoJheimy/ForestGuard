@@ -8,22 +8,45 @@
 
     <title>ForestGuard | Dashboard</title>
 
-    <!-- Google Fonts -->
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/dashboard.css">
 
-    <!--LeafLet-->
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+         Usados por dashboard.js para las alertas
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         LEAFLET CSS
+    ====================================================== -->
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+
+    <!-- =====================================================
+         FORESTGUARD CSS
+    ====================================================== -->
+
+    <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
 
@@ -44,54 +67,79 @@
 
         <aside class="sidebar">
 
+
             <!-- LOGO -->
 
             <div class="sidebar-logo">
 
                 <div class="logo-icon">
-                    <img src="image/ForestGuard.png" alt="">
+
+                    <img src="image/ForestGuard.png" alt="ForestGuard">
+
                 </div>
 
                 <div>
-                    <h2>ForestGuard</h2>
-                    <span>MONITORING SYSTEM</span>
+
+                    <h2>
+                        ForestGuard
+                    </h2>
+
+                    <span>
+                        MONITORING SYSTEM
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <!-- MENU -->
+            <!-- =================================================
+                 MENÚ
+            ================================================== -->
 
             <nav class="sidebar-menu">
+
 
                 <p class="menu-title">
                     PRINCIPAL
                 </p>
 
 
+                <!-- DASHBOARD -->
+
                 <a href="#" class="menu-item active" data-view="dashboard">
 
                     <i class="fa-solid fa-chart-pie"></i>
 
-                    <span>Dashboard</span>
+                    <span>
+                        Dashboard
+                    </span>
 
                 </a>
 
+
+                <!-- ZONAS -->
 
                 <a href="#" class="menu-item" data-view="zonas">
 
                     <i class="fa-solid fa-location-dot"></i>
 
-                    <span>Zonas</span>
+                    <span>
+                        Zonas
+                    </span>
 
                 </a>
 
+
+                <!-- ALERTAS -->
 
                 <a href="#" class="menu-item" data-view="alertas">
 
                     <i class="fa-solid fa-triangle-exclamation"></i>
 
-                    <span>Alertas</span>
+                    <span>
+                        Alertas
+                    </span>
 
                     <span class="notification-count">
                         3
@@ -105,20 +153,28 @@
                 </p>
 
 
+                <!-- SENSORES -->
+
                 <a href="#" class="menu-item" data-view="sensores">
 
                     <i class="fa-solid fa-microchip"></i>
 
-                    <span>Sensores</span>
+                    <span>
+                        Sensores
+                    </span>
 
                 </a>
 
+
+                <!-- HISTORIAL -->
 
                 <a href="#" class="menu-item" data-view="historial">
 
                     <i class="fa-solid fa-chart-line"></i>
 
-                    <span>Historial</span>
+                    <span>
+                        Historial
+                    </span>
 
                 </a>
 
@@ -128,32 +184,49 @@
                 </p>
 
 
+                <!-- CONFIGURACIÓN -->
+
                 <a href="#" class="menu-item" data-view="configuracion">
 
                     <i class="fa-solid fa-gear"></i>
 
-                    <span>Configuración</span>
+                    <span>
+                        Configuración
+                    </span>
 
                 </a>
+
 
                 <p class="menu-title">
                     VIDEO
                 </p>
 
+
+                <!-- MEDIA -->
+
+
                 <a href="#" class="menu-item" data-view="media">
 
                     <i class="fa-solid fa-film"></i>
 
-                    <span>Media</span>
+                    <span>
+                        Media
+                    </span>
 
                 </a>
+
 
             </nav>
 
 
-            <!-- SIDEBAR BOTTOM -->
+            <!-- =================================================
+                 SIDEBAR BOTTOM
+            ================================================== -->
 
             <div class="sidebar-bottom">
+
+
+                <!-- ESTADO DEL SISTEMA -->
 
                 <div class="system-status">
 
@@ -161,14 +234,20 @@
 
                     <div>
 
-                        <strong>Sistema online</strong>
+                        <strong>
+                            Sistema online
+                        </strong>
 
-                        <small>Todos los servicios activos</small>
+                        <small>
+                            Todos los servicios activos
+                        </small>
 
                     </div>
 
                 </div>
 
+
+                <!-- USUARIO -->
 
                 <div class="sidebar-user">
 
@@ -178,9 +257,13 @@
 
                     <div class="user-info">
 
-                        <strong>Administrador</strong>
+                        <strong>
+                            Administrador
+                        </strong>
 
-                        <small>ForestGuard</small>
+                        <small>
+                            ForestGuard
+                        </small>
 
                     </div>
 
@@ -188,7 +271,9 @@
 
                 </div>
 
+
             </div>
+
 
         </aside>
 
@@ -272,10 +357,13 @@
 
 
                 <!-- =====================================================
-         VISTA: DASHBOARD
-    ====================================================== -->
+                     VISTA: DASHBOARD
+                ====================================================== -->
 
                 <div class="dashboard-view view active" id="view-dashboard">
+
+
+                    <!-- BIENVENIDA -->
 
                     <div class="welcome">
 
@@ -292,21 +380,37 @@
 
                         </div>
 
+
                         <div class="system-online">
 
                             <span></span>
 
-                            Sistema operativo
+                            <div>
+
+                                <strong>
+                                    Sistema operativo
+                                </strong>
+
+                                <small id="sensorConnectionStatus">
+                                    3/3 sensores conectados
+                                </small>
+
+                            </div>
 
                         </div>
 
                     </div>
 
 
-                    <!-- ESTADÍSTICAS -->
+
+                    <!-- =================================================
+                         ESTADÍSTICAS
+                    ================================================== -->
 
                     <div class="stats-grid">
 
+
+                        <!-- TEMPERATURA -->
 
                         <div class="stat-card">
 
@@ -324,15 +428,19 @@
 
                             </div>
 
+
                             <div class="stat-value">
 
                                 <strong id="temperature">
                                     24.8
                                 </strong>
 
-                                <span>°C</span>
+                                <span>
+                                    °C
+                                </span>
 
                             </div>
+
 
                             <div class="stat-footer positive">
 
@@ -344,6 +452,9 @@
 
                         </div>
 
+
+
+                        <!-- HUMEDAD -->
 
                         <div class="stat-card">
 
@@ -361,15 +472,19 @@
 
                             </div>
 
+
                             <div class="stat-value">
 
                                 <strong id="humidity">
                                     42
                                 </strong>
 
-                                <span>%</span>
+                                <span>
+                                    %
+                                </span>
 
                             </div>
+
 
                             <div class="stat-footer positive">
 
@@ -381,6 +496,9 @@
 
                         </div>
 
+
+
+                        <!-- HUMO -->
 
                         <div class="stat-card">
 
@@ -398,15 +516,19 @@
 
                             </div>
 
+
                             <div class="stat-value">
 
                                 <strong id="smoke">
                                     18
                                 </strong>
 
-                                <span>ppm</span>
+                                <span>
+                                    ppm
+                                </span>
 
                             </div>
+
 
                             <div class="stat-footer positive">
 
@@ -418,6 +540,9 @@
 
                         </div>
 
+
+
+                        <!-- RIESGO -->
 
                         <div class="stat-card">
 
@@ -435,6 +560,7 @@
 
                             </div>
 
+
                             <div class="risk-value">
 
                                 <span class="risk-indicator"></span>
@@ -445,6 +571,7 @@
 
                             </div>
 
+
                             <div class="stat-footer">
 
                                 Todos los parámetros normales
@@ -453,15 +580,21 @@
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- GRÁFICO + MAPA -->
+
+                    <!-- =================================================
+                         GRÁFICO + MAPA
+                    ================================================== -->
 
                     <div class="middle-grid">
 
 
-                        <div class="panel chart-panel">
+                        <!-- GRÁFICO -->
+
+                        <div class="panel">
 
                             <div class="panel-header">
 
@@ -477,23 +610,34 @@
 
                                 </div>
 
+
+                                <!--
+                                    Valores compatibles con
+                                    updateChartPeriod()
+                                -->
+
                                 <select id="chartPeriod">
 
-                                    <option value="24">
-                                        Últimas 24 horas
+                                    <option value="6">
+                                        Últimas 6 horas
                                     </option>
 
                                     <option value="12">
                                         Últimas 12 horas
                                     </option>
 
-                                    <option value="6">
-                                        Últimas 6 horas
+                                    <option value="24" selected>
+                                        Últimas 24 horas
+                                    </option>
+
+                                    <option value="168">
+                                        Últimos 7 días
                                     </option>
 
                                 </select>
 
                             </div>
+
 
                             <div class="chart-container">
 
@@ -503,6 +647,9 @@
 
                         </div>
 
+
+
+                        <!-- MAPA -->
 
                         <div class="panel map-panel">
 
@@ -522,19 +669,28 @@
 
                             </div>
 
+
                             <div class="map-container">
+
                                 <div id="dashboardMap"></div>
+
                             </div>
 
                         </div>
 
+
                     </div>
 
 
-                    <!-- ALERTAS + DISPOSITIVOS -->
+
+                    <!-- =================================================
+                         ALERTAS + DISPOSITIVOS
+                    ================================================== -->
 
                     <div class="bottom-grid">
 
+
+                        <!-- ALERTAS -->
 
                         <div class="panel">
 
@@ -552,13 +708,16 @@
 
                                 </div>
 
+
                                 <a href="#" class="view-link" data-view="alertas">
                                     Ver todas
                                 </a>
 
                             </div>
 
+
                             <div class="alerts-list">
+
 
                                 <div class="alert-item warning">
 
@@ -567,6 +726,7 @@
                                         <i class="fa-solid fa-temperature-high"></i>
 
                                     </div>
+
 
                                     <div class="alert-info">
 
@@ -584,11 +744,13 @@
 
                                     </div>
 
+
                                     <span class="alert-status warning">
                                         Advertencia
                                     </span>
 
                                 </div>
+
 
 
                                 <div class="alert-item danger">
@@ -598,6 +760,7 @@
                                         <i class="fa-solid fa-smog"></i>
 
                                     </div>
+
 
                                     <div class="alert-info">
 
@@ -615,16 +778,21 @@
 
                                     </div>
 
+
                                     <span class="alert-status danger">
                                         Crítica
                                     </span>
 
                                 </div>
 
+
                             </div>
 
                         </div>
 
+
+
+                        <!-- DISPOSITIVOS -->
 
                         <div class="panel">
 
@@ -647,6 +815,7 @@
 
                             <div class="device-list">
 
+
                                 <div class="device">
 
                                     <div class="device-icon">
@@ -654,6 +823,7 @@
                                         <i class="fa-solid fa-microchip"></i>
 
                                     </div>
+
 
                                     <div class="device-info">
 
@@ -667,6 +837,41 @@
 
                                     </div>
 
+
+                                    <div class="device-status online">
+
+                                        <span></span>
+
+                                        Online
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="device">
+
+                                    <div class="device-icon">
+
+                                        <i class="fa-solid fa-microchip"></i>
+
+                                    </div>
+
+
+                                    <div class="device-info">
+
+                                        <strong>
+                                            ForestGuard-02
+                                        </strong>
+
+                                        <span>
+                                            Zona Centro
+                                        </span>
+
+                                    </div>
+
+
                                     <div class="device-status online">
 
                                         <span></span>
@@ -686,17 +891,19 @@
 
                                     </div>
 
+
                                     <div class="device-info">
 
                                         <strong>
-                                            ForestGuard-02
+                                            ForestGuard-03
                                         </strong>
 
                                         <span>
-                                            Zona Centro
+                                            Zona Sur
                                         </span>
 
                                     </div>
+
 
                                     <div class="device-status online">
 
@@ -708,25 +915,31 @@
 
                                 </div>
 
+
                             </div>
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
 
 
                 <!-- =====================================================
-         VISTA: ZONAS
-    ====================================================== -->
+                     VISTA: ZONAS
+                ====================================================== -->
 
                 <div class="view" id="view-zonas">
 
+
                     <div class="page-heading">
 
-                        <span>MONITOREO GEOGRÁFICO</span>
+                        <span>
+                            MONITOREO GEOGRÁFICO
+                        </span>
 
                         <h2>
                             Zonas monitoreadas
@@ -742,6 +955,8 @@
 
                     <div class="zones-layout">
 
+
+                        <!-- MAPA -->
 
                         <div class="panel zone-map">
 
@@ -759,18 +974,27 @@
 
                                 </div>
 
-                                <button class="map-button">
+
+                                <button class="map-button" type="button" aria-label="Expandir mapa">
+
                                     <i class="fa-solid fa-expand"></i>
+
                                 </button>
 
                             </div>
 
 
                             <div class="real-map">
+
                                 <div id="zonesMap"></div>
+
                             </div>
+
                         </div>
 
+
+
+                        <!-- ESTACIONES -->
 
                         <div class="panel">
 
@@ -819,6 +1043,7 @@
                                 </div>
 
 
+
                                 <div class="zone-item">
 
                                     <div class="zone-status yellow">
@@ -842,6 +1067,7 @@
                                     </b>
 
                                 </div>
+
 
 
                                 <div class="zone-item">
@@ -868,25 +1094,31 @@
 
                                 </div>
 
+
                             </div>
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
 
 
                 <!-- =====================================================
-         VISTA: ALERTAS
-    ====================================================== -->
+                     VISTA: ALERTAS
+                ====================================================== -->
 
                 <div class="view" id="view-alertas">
 
+
                     <div class="page-heading">
 
-                        <span>SEGURIDAD</span>
+                        <span>
+                            SEGURIDAD
+                        </span>
 
                         <h2>
                             Centro de alertas
@@ -901,9 +1133,12 @@
 
                     <div class="alerts-summary">
 
+
                         <div class="alert-summary-card">
 
-                            <strong>1</strong>
+                            <strong>
+                                1
+                            </strong>
 
                             <span>
                                 Críticas
@@ -914,7 +1149,9 @@
 
                         <div class="alert-summary-card">
 
-                            <strong>1</strong>
+                            <strong>
+                                1
+                            </strong>
 
                             <span>
                                 Advertencias
@@ -925,7 +1162,9 @@
 
                         <div class="alert-summary-card">
 
-                            <strong>4</strong>
+                            <strong>
+                                4
+                            </strong>
 
                             <span>
                                 Resueltas
@@ -933,7 +1172,9 @@
 
                         </div>
 
+
                     </div>
+
 
 
                     <div class="panel">
@@ -961,7 +1202,9 @@
                             <div class="full-alert danger">
 
                                 <div class="full-alert-icon">
+
                                     <i class="fa-solid fa-fire"></i>
+
                                 </div>
 
                                 <div>
@@ -987,10 +1230,13 @@
                             </div>
 
 
+
                             <div class="full-alert warning">
 
                                 <div class="full-alert-icon">
+
                                     <i class="fa-solid fa-temperature-high"></i>
+
                                 </div>
 
                                 <div>
@@ -1016,10 +1262,13 @@
                             </div>
 
 
+
                             <div class="full-alert normal">
 
                                 <div class="full-alert-icon">
+
                                     <i class="fa-solid fa-check"></i>
+
                                 </div>
 
                                 <div>
@@ -1044,23 +1293,28 @@
 
                             </div>
 
+
                         </div>
 
                     </div>
+
 
                 </div>
 
 
 
                 <!-- =====================================================
-         VISTA: SENSORES
-    ====================================================== -->
+                     VISTA: SENSORES
+                ====================================================== -->
 
                 <div class="view" id="view-sensores">
 
+
                     <div class="page-heading">
 
-                        <span>INTERNET OF THINGS</span>
+                        <span>
+                            INTERNET OF THINGS
+                        </span>
 
                         <h2>
                             Sensores y dispositivos
@@ -1074,8 +1328,11 @@
                     </div>
 
 
+
                     <div class="sensor-grid">
 
+
+                        <!-- SENSOR 01 -->
 
                         <div class="sensor-card">
 
@@ -1145,6 +1402,8 @@
 
 
 
+                        <!-- SENSOR 02 -->
+
                         <div class="sensor-card">
 
                             <div class="sensor-top">
@@ -1213,7 +1472,9 @@
 
 
 
-                        <div class="sensor-card offline-card">
+                        <!-- SENSOR 03 -->
+
+                        <div class="sensor-card">
 
                             <div class="sensor-top">
 
@@ -1223,8 +1484,8 @@
 
                                 </div>
 
-                                <span class="sensor-offline">
-                                    ● OFFLINE
+                                <span class="sensor-online">
+                                    ● ONLINE
                                 </span>
 
                             </div>
@@ -1244,7 +1505,7 @@
                                 <div>
 
                                     <span>
-                                        Última temperatura
+                                        Temperatura
                                     </span>
 
                                     <strong>
@@ -1257,7 +1518,7 @@
                                 <div>
 
                                     <span>
-                                        Última humedad
+                                        Humedad
                                     </span>
 
                                     <strong>
@@ -1271,16 +1532,20 @@
 
                             <div class="sensor-footer">
 
-                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                <i class="fa-solid fa-clock"></i>
 
-                                Sin conexión
+                                Actualizado hace 5 segundos
 
                             </div>
 
                         </div>
 
+
                     </div>
 
+
+
+                    <!-- HARDWARE -->
 
                     <div class="panel sensor-components">
 
@@ -1327,6 +1592,7 @@
                             </div>
 
 
+
                             <div class="component">
 
                                 <i class="fa-solid fa-temperature-half"></i>
@@ -1348,6 +1614,7 @@
                                 </b>
 
                             </div>
+
 
 
                             <div class="component">
@@ -1372,23 +1639,28 @@
 
                             </div>
 
+
                         </div>
 
                     </div>
+
 
                 </div>
 
 
 
                 <!-- =====================================================
-         VISTA: HISTORIAL
-    ====================================================== -->
+                     VISTA: HISTORIAL
+                ====================================================== -->
 
                 <div class="view" id="view-historial">
 
+
                     <div class="page-heading">
 
-                        <span>DATOS</span>
+                        <span>
+                            DATOS
+                        </span>
 
                         <h2>
                             Historial de mediciones
@@ -1399,6 +1671,7 @@
                         </p>
 
                     </div>
+
 
 
                     <div class="panel">
@@ -1416,6 +1689,7 @@
                                 </h3>
 
                             </div>
+
 
                             <select>
 
@@ -1436,7 +1710,9 @@
                         </div>
 
 
+
                         <div class="history-table">
+
 
                             <div class="history-row history-header">
 
@@ -1465,6 +1741,7 @@
                                 </span>
 
                             </div>
+
 
 
                             <div class="history-row">
@@ -1496,6 +1773,7 @@
                             </div>
 
 
+
                             <div class="history-row">
 
                                 <span>
@@ -1524,23 +1802,28 @@
 
                             </div>
 
+
                         </div>
 
                     </div>
+
 
                 </div>
 
 
 
                 <!-- =====================================================
-         VISTA: CONFIGURACIÓN
-    ====================================================== -->
+                     VISTA: CONFIGURACIÓN
+                ====================================================== -->
 
                 <div class="view" id="view-configuracion">
 
+
                     <div class="page-heading">
 
-                        <span>SISTEMA</span>
+                        <span>
+                            SISTEMA
+                        </span>
 
                         <h2>
                             Configuración
@@ -1553,8 +1836,11 @@
                     </div>
 
 
+
                     <div class="settings-grid">
 
+
+                        <!-- UMBRALES -->
 
                         <div class="panel">
 
@@ -1591,9 +1877,12 @@
 
                                 <input type="number" value="30">
 
-                                <span>°C</span>
+                                <span>
+                                    °C
+                                </span>
 
                             </div>
+
 
 
                             <div class="setting">
@@ -1612,9 +1901,12 @@
 
                                 <input type="number" value="30">
 
-                                <span>%</span>
+                                <span>
+                                    %
+                                </span>
 
                             </div>
+
 
 
                             <div class="setting">
@@ -1633,12 +1925,18 @@
 
                                 <input type="number" value="60">
 
-                                <span>ppm</span>
+                                <span>
+                                    ppm
+                                </span>
 
                             </div>
 
+
                         </div>
 
+
+
+                        <!-- PREFERENCIAS -->
 
                         <div class="panel">
 
@@ -1680,6 +1978,7 @@
                             </label>
 
 
+
                             <label class="toggle-setting">
 
                                 <div>
@@ -1700,41 +1999,64 @@
 
                             </label>
 
+
                         </div>
+
 
                     </div>
 
+
                 </div>
 
+
+
                 <!-- =====================================================
-         VISTA: Media
-    ====================================================== -->
+                     VISTA: VIDEO / MEDIA
+                ====================================================== -->
 
                 <div class="view" id="view-media">
 
+
                     <div class="page-heading">
 
-                        <span>Presentación ForestGuard</span>
+                        <span>
+                            PRESENTACIÓN FORESTGUARD
+                        </span>
 
                         <h2>
                             Media
                         </h2>
 
+                        <p>
+                            Conoce el funcionamiento y la propuesta de
+                            ForestGuard.
+                        </p>
 
                     </div>
+
+
                     <div class="tech-video">
-                        <h3>Conoce Parte de ForestGuard</h3>
+
+                        <h3>
+                            Conoce parte de ForestGuard
+                        </h3>
+
 
                         <div class="video-container">
-                            <iframe src="video/FORESTGUARD.mp4"
-                                title="Tecnologías utilizadas en ForestGuard" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
+
+                            <video controls preload="metadata">
+
+                                <source src="video/FORESTGUARD.mp4" type="video/mp4">
+
+                                Tu navegador no soporta la reproducción
+                                de videos.
+
+                            </video>
+
                         </div>
+
+
                     </div>
-
-
 
 
                 </div>
@@ -1742,9 +2064,12 @@
 
             </section>
 
+
         </main>
 
+
     </div>
+
 
 
     <!-- =====================================================
@@ -1754,14 +2079,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
+
     <!-- =====================================================
-         DASHBOARD JS
+         LEAFLET JS
+    ====================================================== -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+
+
+    <!-- =====================================================
+         FORESTGUARD DASHBOARD JS
     ====================================================== -->
 
     <script src="js/dashboard.js"></script>
-
-    <!--LeafLet-->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
 
 </body>
